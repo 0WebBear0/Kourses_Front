@@ -1,7 +1,7 @@
 <template>
   <Header name="unaftorise" avatar="person_off" user-settings="/setting"/>
   <q-page class="flex flex-center">
-    dsdsdsdsdsdsdsd
+    dsdsdsdsdsdsdsddsdsdsd
     <img
       alt="Quasar logo"
       src="~assets/quasar-logo-vertical.svg"
