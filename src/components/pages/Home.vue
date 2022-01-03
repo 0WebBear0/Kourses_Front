@@ -1,6 +1,6 @@
 <template>
   <Header name="unaftorise" avatar="person_off" user-settings="/setting"/>
-  <q-page class="flex flex-center">
+  <q-page class="flex flex-center">ыввывывывывывыв
     dsdsdsdsdsdsdsddsdsdsdsdsdsdsasas
     <img
       alt="Quasar logo"
