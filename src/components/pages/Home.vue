@@ -6,6 +6,7 @@
       src="~assets/quasar-logo-vertical.svg"
       style="width: 200px; height: 200px"
     >
+    iasdghaisdguya
   </q-page>
 </template>
 
