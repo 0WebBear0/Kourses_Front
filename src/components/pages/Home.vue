@@ -160,9 +160,16 @@ h3 {
     border-radius: 20px;
     max-width: 17.5rem;
     font-size: 18px;
-    min-height: 55vh;
+    min-height: 50vh;
+    &:hover {
+      img {
+        transition: 1s;
+        width: 8rem;
+      }
+    }
     img {
-      width: 8rem;
+      transition: 0.5s;
+      width: 6rem;
     }
   }
 }
@@ -187,6 +194,9 @@ h3 {
     font-size: 20px;
     line-height: 23px;
     color: #FFFFFF;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 

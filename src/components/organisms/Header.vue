@@ -21,14 +21,17 @@
       </div>
 
       <q-toolbar-title class="headerDesktop">
-          <div v-for="link in essentialLinks" :key="link.title" v-bind="link">
-              <q-item class="header-item" clickable tag="a" :href="link.link">{{link.title}}</q-item>
+          <div class="logo"> <img src="../../assets/logo.png"> </div>
+          <div class="header-items">
+            <div v-for="link in essentialLinks" :key="link.title" v-bind="link">
+                <q-item class="header-item" clickable tag="a" :href="link.link">{{link.title}}</q-item>
+            </div>
           </div>
 
-              <a :href="userSettings" class="header-item nullification UserLabelOnHeader" >
+              <!-- <a :href="userSettings" class="header-item nullification UserLabelOnHeader" >
                 <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
                 <q-item-label class="roundByImg">{{name}}</q-item-label>
-              </a>
+              </a> -->
       </q-toolbar-title>
 
     </q-toolbar>
@@ -118,7 +121,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+  .logo img {
+    width: 350px;
+  }
+  .logo {
+    align-self: left;
+  }
   .header{
     background: #29AAE3;
   }
@@ -133,7 +141,9 @@ export default defineComponent({
  .headerDesktop{
    display: flex;
    flex-direction: row;
-   justify-content: space-evenly;
+   align-items: center;
+   justify-content: space-between;
+   margin-right: 5rem;
  }
  .HeaderLayout{
    width: 100%;
@@ -164,7 +174,11 @@ export default defineComponent({
      display: none;
    }
  }
+ .header-items {
+   display: flex;
+   gap: 2rem;
+ }
  .header-item {
-  padding: 25px 10px;
+  padding: 20px 20px;
 }
 </style>
