@@ -1,11 +1,18 @@
-
 const routes = [
   {
     path: '',
     component: () => import('components/templates/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('components/pages/Home') }
-    ]
+    children: [{ path: '', component: () => import('components/pages/Home') }]
+  },
+  {
+    path: '/calculator',
+    component: () => import('components/templates/MainLayout.vue'),
+    children: [{ path: '', component: () => import('components/pages/Calculator') }]
+  },
+  {
+    path: '/profile',
+    component: () => import('components/templates/MainLayout.vue'),
+    children: [{ path: '', component: () => import('components/pages/Profile') }]
   },
 
   // Always leave this as last one,

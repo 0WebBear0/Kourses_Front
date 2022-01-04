@@ -2,41 +2,7 @@
   <Header name="unaftorise" avatar="person_off" user-settings="/setting" />
   <q-page class="flex flex-center">
     <div class="main">
-      <div class="info-block">
-        f
-      </div>
-      <div class="blue-block">
-        <h3>Создать отчет</h3>
-        <div class="container">
-          <div class="container-info">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quas distinctio voluptate officiis, eius voluptatum aut odio blanditiis aliquid.
-              Nam a tempore perferendis ex sunt eaque, amet dolor impedit. Suscipit, provident.
-            </p>
-            <q-btn to="/calculator" rounded>Добавить отчет</q-btn>
-          </div>
-          <div class="container-img">
-            <img src=""/>
-          </div>
-        </div>
-      </div>
-      <div class="red-block">
-        <h3>Управляйте своими отчетами</h3>
-        <div class="container">
-          <div class="conatiner-img">
-            <img src=""/>
-          </div>
-          <div class="container-info">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quas distinctio voluptate officiis, eius voluptatum aut odio blanditiis aliquid.
-              Nam a tempore perferendis ex sunt eaque, amet dolor impedit. Suscipit, provident.
-            </p>
-            <q-btn to="/profile" rounded>Посмотреть</q-btn>
-          </div>
-        </div>
-      </div>
+     fd
     </div>
     <div class="footer">
       <div class="links">

@@ -21,7 +21,7 @@
       </div>
 
       <q-toolbar-title class="headerDesktop">
-          <div class="logo"> <img src="../../assets/logo.png"> </div>
+          <div class="logo"> <img src=""> </div>
           <div class="header-items">
             <div v-for="link in essentialLinks" :key="link.title" v-bind="link">
                 <q-item class="header-item" clickable tag="a" :href="link.link">{{link.title}}</q-item>
@@ -128,7 +128,7 @@ export default defineComponent({
     align-self: left;
   }
   .header{
-    background: #29AAE3;
+    background: #000000;
   }
  .UserLabelOnHeader{
    display: flex;
