@@ -4,10 +4,6 @@
     <div class="main">
       <div class="info-block">
         <div class="column-block">
-          <img src="../../assets/drug.png">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia sint temporibus neque, corporis totam inventore delectus voluptate. Inventore atque in eveniet sapiente quisquam illum facilis illo ducimus, ex enim nihil?
-        </div>
-        <div class="column-block">
           <img src="../../assets/caduceus.png">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia sint temporibus neque, corporis totam inventore delectus voluptate. Inventore atque in eveniet sapiente quisquam illum facilis illo ducimus, ex enim nihil?
         </div>
