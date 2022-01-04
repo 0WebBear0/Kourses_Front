@@ -1,5 +1,5 @@
 <template>
-  <Header name="unaftorise" avatar="person_off" user-settings="/setting" />
+  <Header name="unaftorise" avatar="person_off" user-settings="/profile" />
   <q-page class="flex flex-center">
     <div class="main">
         <div class="name"><q-input v-model="text" label="Название отчета" /></div>

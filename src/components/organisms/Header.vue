@@ -12,7 +12,11 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-item-label>Название организации</q-item-label>
+        <q-item-label>
+          <a href="" class="nullification">
+            WebBear
+          </a>
+        </q-item-label>
 
         <a :href="userSettings" class="nullification UserLabelOnHeader" >
           <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
@@ -67,18 +71,13 @@ const linksList = [
     link: '/'
   },
   {
-    title: 'Cписок пациентов',
-    icon: 'playlist_play',
-    link: '/list'
-  },
-  {
-    title: 'Запись на прием',
-    icon: 'today',
-    link: '/registration'
+    title: 'Калькулятор',
+    icon: 'calculate',
+    link: '/calculator'
   },
   {
     title: 'Помощь',
-    icon: 'apps',
+    icon: 'help',
     link: '/help'
   }
 ]
@@ -128,7 +127,7 @@ export default defineComponent({
     align-self: left;
   }
   .header{
-    background: #000000;
+    background: #000000CC;
   }
  .UserLabelOnHeader{
    display: flex;
@@ -142,7 +141,7 @@ export default defineComponent({
    display: flex;
    flex-direction: row;
    align-items: center;
-   justify-content: space-between;
+   justify-content: center;
    margin-right: 5rem;
  }
  .HeaderLayout{
