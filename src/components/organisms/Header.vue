@@ -12,7 +12,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-item-label>WebChtivo</q-item-label>
+        <q-item-label>Название организации</q-item-label>
 
         <a :href="userSettings" class="nullification UserLabelOnHeader" >
           <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
@@ -22,10 +22,10 @@
 
       <q-toolbar-title class="headerDesktop">
           <div v-for="link in essentialLinks" :key="link.title" v-bind="link">
-              <q-item clickable tag="a" :href="link.link">{{link.title}}</q-item>
+              <q-item class="header-item" clickable tag="a" :href="link.link">{{link.title}}</q-item>
           </div>
 
-              <a :href="userSettings" class="nullification UserLabelOnHeader" >
+              <a :href="userSettings" class="header-item nullification UserLabelOnHeader" >
                 <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
                 <q-item-label class="roundByImg">{{name}}</q-item-label>
               </a>
@@ -64,19 +64,19 @@ const linksList = [
     link: '/'
   },
   {
-    title: 'Мои тайтлы',
+    title: 'Cписок пациентов',
     icon: 'playlist_play',
-    link: '/MyTitles'
+    link: '/list'
   },
   {
-    title: 'Расписание',
+    title: 'Запись на прием',
     icon: 'today',
-    link: '/Schedule'
+    link: '/registration'
   },
   {
-    title: 'Все тайтлы',
+    title: 'Помощь',
     icon: 'apps',
-    link: '/AllTitles'
+    link: '/help'
   }
 ]
 
@@ -109,8 +109,6 @@ export default defineComponent({
       essentialLinks: linksList,
       leftDrawerOpen,
 
-      tab: ref('Понедельник'),
-
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }
@@ -120,8 +118,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
   .header{
-    background-color: rgba(0,0,0,0.7);
+    background: #29AAE3;
   }
  .UserLabelOnHeader{
    display: flex;
@@ -165,4 +164,7 @@ export default defineComponent({
      display: none;
    }
  }
+ .header-item {
+  padding: 25px 10px;
+}
 </style>
