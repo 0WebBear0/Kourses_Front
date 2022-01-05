@@ -25,12 +25,16 @@
       </div>
 
       <q-toolbar-title class="headerDesktop">
-          <div class="logo"> <img src=""> </div>
           <div class="header-items">
             <div v-for="link in essentialLinks" :key="link.title" v-bind="link">
                 <q-item class="header-item" clickable tag="a" :href="link.link">{{link.title}}</q-item>
             </div>
           </div>
+          <a :href="userSettings" class="nullification UserLabelOnHeader" >
+            <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
+            <q-item-label class="roundByImg">{{name}}</q-item-label>
+          </a>
+<!--          <q-item><div class="logo"><img :src="avatar">{{name}}</div></q-item>-->
 
               <!-- <a :href="userSettings" class="header-item nullification UserLabelOnHeader" >
                 <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>

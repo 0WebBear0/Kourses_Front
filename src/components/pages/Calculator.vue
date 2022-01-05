@@ -2,18 +2,71 @@
   <Header name="unaftorise" avatar="person_off" user-settings="/profile" />
   <q-page class="flex flex-center">
     <div class="main">
-        <div class="name"><q-input v-model="text" label="Название отчета" /></div>
+        <div class="name"><q-input v-model="name" label="Название отчета" /></div>
         <div class="container">
             <div class="container__top-inputs">
-                <div><q-input outlined v-model="text" label="Предполагаемый доход" /></div>
-                <div><q-input outlined v-model="text" label="РАСХОДЫ" /></div>
-                <div><q-input outlined v-model="text" label="Налоговая ставка" /></div>
+                <div><q-input outlined type="number" v-model="income" label="Предполагаемый доход" /></div>
+                <div><q-input outlined type="number" v-model="costs"  label="Расходы" /></div>
+              <q-btn-dropdown color="grey-5" :label="dropdown" dropdown-icon="change_history">
+                <q-list>
+
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                    <q-item clickable v-close-popup @click="dropdown = 'Ип ОСНО'" style="width: 75%; justify-content: center;">
+                        <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип ОСНО</q-item-label>
+                    </q-item>
+                    <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/osno-obshchaya-sistema-nalogooblozheniya" v-close-popup style="width: 25%; justify-content: center;">
+                      <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="info" color="amber" />
+                    </q-item>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                    <q-item clickable v-close-popup @click="dropdown = 'Ип УСН %6'" style="width: 75%; justify-content: center;">
+                      <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип УСН %6</q-item-label>
+                    </q-item>
+                    <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/usn" v-close-popup style="width: 25%; justify-content: center;">
+                      <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="info" color="amber" />
+                    </q-item>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                    <q-item clickable v-close-popup @click="dropdown = 'Ип УСН %15'" style="width: 75%; justify-content: center;">
+                      <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип УСН %15</q-item-label>
+                    </q-item>
+                    <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/usn" v-close-popup style="width: 25%; justify-content: center;">
+                      <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="info" color="amber" />
+                    </q-item>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                    <q-item clickable v-close-popup @click="dropdown = 'Ип ЕСХ'" style="width: 75%; justify-content: center;">
+                      <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип ЕСХ</q-item-label>
+                    </q-item>
+                    <q-item clickable href="https://www.nalog.gov.ru/rn77/taxation/taxes/eshn/" v-close-popup style="width: 25%; justify-content: center;">
+                      <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="info" color="amber" />
+                    </q-item>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                    <q-item clickable v-close-popup @click="dropdown = 'Ип ПСН'" style="width: 75%; justify-content: center;">
+                      <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип ПСН</q-item-label>
+                    </q-item>
+                    <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/patentnaya-sistema-nalogooblozheniya" v-close-popup style="width: 25%; justify-content: center;">
+                      <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="info" color="amber" />
+                    </q-item>
+                  </div>
+                  <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
+                    <q-item clickable v-close-popup @click="dropdown = 'Ип НПД'" style="width: 75%; justify-content: center;">
+                      <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип НПД</q-item-label>
+                    </q-item>
+                    <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/nalogi-samozanyatyh-grazhdan-v-2019" v-close-popup style="width: 25%; justify-content: center;">
+                      <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="info" color="amber" />
+                    </q-item>
+                  </div>
+
+                </q-list>
+              </q-btn-dropdown>
             </div>
             <div class="container__bottom-inputs">
-                <div><q-input outlined v-model="text" label="Ррасход" /></div>
-                <div><q-input outlined v-model="text" label="Р маржи" readonly/></div>
+                <div><q-input outlined v-model="paymentCosts" label="Расчёт расхода" readonly /></div>
+                <div><q-input outlined v-model="paymentMargin" label="Расчёт маржи" readonly/></div>
             </div>
-            <div class="container-button"><q-btn color="black" size='lg' >Сохранить</q-btn></div>
+            <div class="container-button"><q-btn color="grey-9" size='lg' >Сохранить</q-btn></div>
         </div>
     </div>
     <div class="footer">
@@ -37,9 +90,56 @@ import Header from 'components/organisms/Header'
 export default defineComponent({
   name: 'PageIndex',
   components: { Header },
+  watch: {
+    income: function () {
+      this.calculatePayment()
+    },
+    costs: function () {
+      this.calculatePayment()
+    },
+    dropdown: function () {
+      this.calculatePayment()
+    }
+  },
   setup () {
     return {
-      text: ref('')
+      name: ref(''),
+      income: ref(null),
+      costs: ref(null),
+      paymentMargin: ref(null),
+      paymentCosts: ref(null),
+      dropdown: ref('Налоговая ставка'),
+      popupQuestion: ref(''),
+      calculatePayment () {
+        if (this.income && this.costs !== null) {
+          switch (this.dropdown) {
+            case 'Ип ОСНО':
+              this.paymentCosts = (this.income - this.costs) * 0.13
+              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.13)
+              break
+            case 'Ип УСН %6':
+              this.paymentCosts = Number(this.costs) + Number(this.income * 0.06)
+              this.paymentMargin = this.income - this.costs - this.income * 0.06
+              break
+            case 'Ип УСН %15':
+              this.paymentCosts = (this.income - this.costs) * 0.15
+              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.15)
+              break
+            case 'Ип ЕСХ':
+              this.paymentCosts = (this.income - this.costs) * 0.06
+              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.06)
+              break
+            case 'Ип ПСН':
+              this.paymentCosts = (this.income - this.costs) * 0.06
+              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.06)
+              break
+            case 'Ип НПД':
+              this.paymentCosts = (this.income - this.costs) * 0.4
+              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.4)
+              break
+          }
+        }
+      }
     }
   }
 })
@@ -89,6 +189,7 @@ export default defineComponent({
 .container {
     margin-bottom: 8rem;
     border: 1px solid #000000;
+    border-radius: 3px;
     padding: 3rem 1.5rem;
     width: 60vw;
     &__top-inputs, &__bottom-inputs {
