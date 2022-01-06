@@ -46,10 +46,31 @@
 import { defineComponent } from 'vue'
 import Header from 'components/organisms/Header'
 import Footer from 'components/organisms/Footer'
+import $api from 'src/AxiosBase'
 
 export default defineComponent({
   name: 'PageIndex',
-  components: { Footer, Header }
+  components: { Footer, Header },
+  created () {
+    this.registrations()
+  },
+  methods: {
+    registrations () {
+
+      const data = {
+        username: 'test',
+        password: 'test'
+      }
+
+      $api.post('registration', JSON.stringify(data) )
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+  }
 })
 </script>
 
