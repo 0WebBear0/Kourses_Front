@@ -5,14 +5,14 @@ const routes = [
     children: [{ path: '', component: () => import('components/pages/Home') }]
   },
   {
-    path: '/calculator',
+    path: '/list',
     component: () => import('components/templates/MainLayout.vue'),
-    children: [{ path: '', component: () => import('components/pages/Calculator') }]
+    children: [{ path: '', component: () => import('components/pages/List') }]
   },
   {
-    path: '/profile',
+    path: '/registration',
     component: () => import('components/templates/MainLayout.vue'),
-    children: [{ path: '', component: () => import('components/pages/Profile') }]
+    children: [{ path: '', component: () => import('components/pages/Registration') }]
   },
 
   // Always leave this as last one,

@@ -12,11 +12,7 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-item-label>
-          <a href="" class="nullification">
-            WebBear
-          </a>
-        </q-item-label>
+        <q-item-label>Название организации</q-item-label>
 
         <a :href="userSettings" class="nullification UserLabelOnHeader" >
           <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
@@ -25,16 +21,12 @@
       </div>
 
       <q-toolbar-title class="headerDesktop">
+          <div class="logo"> <img src="../../assets/logo.png"> </div>
           <div class="header-items">
             <div v-for="link in essentialLinks" :key="link.title" v-bind="link">
                 <q-item class="header-item" clickable tag="a" :href="link.link">{{link.title}}</q-item>
             </div>
           </div>
-          <a :href="userSettings" class="nullification UserLabelOnHeader" >
-            <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
-            <q-item-label class="roundByImg">{{name}}</q-item-label>
-          </a>
-<!--          <q-item><div class="logo"><img :src="avatar">{{name}}</div></q-item>-->
 
               <!-- <a :href="userSettings" class="header-item nullification UserLabelOnHeader" >
                 <q-icon :name="avatar" size="150%" class="UserLabelOnHeader-icon"/>
@@ -75,13 +67,18 @@ const linksList = [
     link: '/'
   },
   {
-    title: 'Калькулятор',
-    icon: 'calculate',
-    link: '/calculator'
+    title: 'Cписок пациентов',
+    icon: 'playlist_play',
+    link: '/list'
+  },
+  {
+    title: 'Запись на прием',
+    icon: 'today',
+    link: '/registration'
   },
   {
     title: 'Помощь',
-    icon: 'help',
+    icon: 'apps',
     link: '/help'
   }
 ]
@@ -131,7 +128,7 @@ export default defineComponent({
     align-self: left;
   }
   .header{
-    background: #000000CC;
+    background: #29AAE3;
   }
  .UserLabelOnHeader{
    display: flex;
@@ -145,7 +142,7 @@ export default defineComponent({
    display: flex;
    flex-direction: row;
    align-items: center;
-   justify-content: center;
+   justify-content: space-between;
    margin-right: 5rem;
  }
  .HeaderLayout{

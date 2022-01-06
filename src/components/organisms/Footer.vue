@@ -1,13 +1,16 @@
 <template>
   <div class="footer">
-    <div class="links">
-      <a href="">Об организации</a>
-      <a href="https://github.com/0WebBear0">Контакты</a>
+      <div class="links">
+        <a href="/f">О клинике</a>
+        <a href="/f">Блог</a>
+        <a href="/f">Контакты</a>
+        <a href="/f">+7 (888) 888-88-88</a>
+      </div>
+      <hr/>
+      <div class="copyright">Copyright 2021-2022, JavaMED. All rights reserved.
+        Privacy Policy  |  Terms of Use  |  Сookies
+      </div>
     </div>
-    <hr/>
-    <div class="copyright">Copyright 2021-2022 "WebMen".
-    </div>
-  </div>
 </template>
 
 <script>
@@ -24,11 +27,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 
 .footer {
-  background: #8B8B8B;
-  display: flex;
+  background: #53a8dd;
   width: 100%;
-  min-height: 60px;
+  display: flex;
   justify-content: center;
+  min-height: 100px;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
@@ -44,14 +47,15 @@ export default defineComponent({
     text-decoration: none;
     font-style: normal;
     font-weight: 500;
-    font-size: clamp(11px,1.5vw,20px);
-    line-height: clamp(10px,1.5vw,20px);
+    font-size: 20px;
+    line-height: 23px;
     color: #FFFFFF;
     &:hover {
-       text-decoration: underline;
+      text-decoration: underline;
     }
   }
 }
+
 .links {
   display: flex;
   gap: 2rem;

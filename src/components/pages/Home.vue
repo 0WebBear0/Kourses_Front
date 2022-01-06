@@ -1,39 +1,68 @@
 <template>
-  <Header name="unaftorise" avatar="person_off" user-settings="/profile" />
+  <Header name="unaftorise" class="header-block" avatar="person_off" user-settings="/profile" />
   <q-page class="flex flex-center">
     <div class="main">
+      <div class="main__container">
+        <div>
+          <h1>JavaMED</h1>
+          <div class="info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Beatae illo harum consectetur. Ipsum possimus, veritatis nulla dolor sapiente quos placeat
+            nihil deleniti corporis omnis ratione exercitationem distinctio dolore doloremque magnam!
+          </div>
+          <div class="buttons">
+            <q-btn class="blue">Войти</q-btn>
+            <q-btn class="red">Зарегистрироваться</q-btn>
+          </div>
+        </div>
+      </div>
       <div class="info-block">
-        f
+        <div class="column-block">
+          <img src="../../assets/drug.png">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia sint temporibus neque, corporis totam inventore delectus voluptate. Inventore atque in eveniet sapiente quisquam illum facilis illo ducimus, ex enim nihil?
+        </div>
+        <div class="column-block">
+          <img src="../../assets/caduceus.png">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia sint temporibus neque, corporis totam inventore delectus voluptate. Inventore atque in eveniet sapiente quisquam illum facilis illo ducimus, ex enim nihil?
+        </div>
+        <div class="column-block">
+          <img src="../../assets/cardiogram.png">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia sint temporibus neque, corporis totam inventore delectus voluptate. Inventore atque in eveniet sapiente quisquam illum facilis illo ducimus, ex enim nihil?
+        </div>
+        <div class="column-block">
+          <img src="../../assets/medical-checkup.png">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia sint temporibus neque, corporis totam inventore delectus voluptate. Inventore atque in eveniet sapiente quisquam illum facilis illo ducimus, ex enim nihil?
+        </div>
       </div>
       <div class="blue-block">
-        <h3>Создать отчет</h3>
+        <h3>Запись на прием</h3>
         <div class="container">
           <div class="container-info">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quas distinctio voluptate officiis, eius voluptatum aut odio blanditiis aliquid.
-              Nam a tempore perferendis ex sunt eaque, amet dolor impedit. Suscipit, provident.
+              Онлайн-система Shifton разработана для оптимизации времени и
+              ресурсов в создании рабочих расписаний сотрудников. Shifton -
+              прекрасное решение для компаний любых сфер деятельности и
+              размеров.
             </p>
-            <q-btn to="/calculator" rounded>Добавить отчет</q-btn>
+            <q-btn class="blue" to="/registration" rounded>Записаться на прием</q-btn>
           </div>
           <div class="container-img">
-            <img src=""/>
+            <img src="../../assets/firstImg.jpg"/>
           </div>
         </div>
       </div>
       <div class="red-block">
-        <h3>Управляйте своими отчетами</h3>
+        <h3>Список зарегистривовшихся на прием пациентов</h3>
         <div class="container">
           <div class="conatiner-img">
-            <img src=""/>
+            <img src="../../assets/secondImg.jpg"/>
           </div>
           <div class="container-info">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quas distinctio voluptate officiis, eius voluptatum aut odio blanditiis aliquid.
-              Nam a tempore perferendis ex sunt eaque, amet dolor impedit. Suscipit, provident.
+              У нас на сайте хранится база записавшихся на прием людей. Вы можете найти себя в данном списке или изменить свои данные прямо там.
+              ПРОСЬБА не удалять данные без имеющейся на то причины!
             </p>
-            <q-btn to="/profile" rounded>Посмотреть</q-btn>
+            <q-btn class="red" to="/list" rounded>Посмотреть</q-btn>
           </div>
         </div>
       </div>
@@ -54,17 +83,47 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.block {
+.main__container {
+  padding: 20vh 10%;
+  background-image: url("../../assets/main.jpg");
+  background-size: 100vw 120vh;  width: 100vw;
+  height: 90vh;
+  h1 {
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: #434449;
+  }
+  .info {
+    max-width: 40vw;
+    font-size: 14px;
+  }
+  .buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 1rem;
+  }
+}
+.red-block, .blue-block {
   width: 100vw;
   padding: 1rem 1rem 0;
+}
+
+.red-block {
   h3 {
-    color: #CD0000;
+    color: #FF5966;
   }
   img {
     width: 30rem;
   }
-  &:nth-child(2) {
-    background: #f5f6f6;
+}
+
+.blue-block {
+  background: #f5f6f6;
+  h3 {
+    color: #29AAE3;
+  }
+  img {
+    width: 40rem;
   }
 }
 
@@ -87,13 +146,21 @@ h3 {
     font-size: 20px;
     line-height: 2rem;
     color: #000000;
-    a{
+  }
+}
+
+.q-btn {
       padding: 10px 30px;
       margin-top: 15px;
       color: #FFFFFF;
-      background: #CD0000;
-    }
-  }
+      &.red {
+        background: #FF5966;
+        opacity: 0.9;
+      }
+      &.blue {
+        background: #29AAE3;
+        opacity: 0.9;
+      }
 }
 
 .info-block {
@@ -126,8 +193,4 @@ h3 {
   }
 }
 
-.links {
-  display: flex;
-  gap: 2rem;
-}
 </style>
