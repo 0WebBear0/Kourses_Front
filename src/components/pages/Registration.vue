@@ -146,7 +146,7 @@ import axios from 'axios'
 import Footer from 'components/organisms/Footer'
 
 export default defineComponent({
-  name: 'PageIndex',
+  name: 'Registration',
   components: { Footer, Header },
   watch: {
     income: function () {

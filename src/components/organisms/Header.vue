@@ -75,11 +75,6 @@ const linksList = [
     title: 'Запись на прием',
     icon: 'today',
     link: '/registration'
-  },
-  {
-    title: 'Помощь',
-    icon: 'apps',
-    link: '/help'
   }
 ]
 
