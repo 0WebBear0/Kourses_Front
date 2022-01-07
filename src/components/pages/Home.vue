@@ -51,18 +51,15 @@ import $api from 'src/AxiosBase'
 export default defineComponent({
   name: 'PageIndex',
   components: { Footer, Header },
-  created () {
-    this.registrations()
-  },
+  // created () {
+  //   this.registrations()
+  // },
   methods: {
     registrations () {
-
-      const data = {
-        username: 'test',
-        password: 'test'
-      }
-
-      $api.post('registration', JSON.stringify(data) )
+      $api.post('auth',{
+        username: "HomePage",
+        password: "PomeHage"
+      })
         .then(function (response) {
           console.log(response)
         })
