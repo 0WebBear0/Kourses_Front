@@ -29,9 +29,9 @@ import $api from 'src/AxiosBase'
 export default defineComponent({
   name: 'PageIndex',
   components: { Footer, Header },
-  data: {
-    getData : null
-  },
+  // data: {
+  //   getData : null
+  // },
   // created () {
   //   $api.get('taxation')
   //     .then(function (response) {
