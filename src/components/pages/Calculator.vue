@@ -103,6 +103,7 @@ import { defineComponent, ref } from 'vue'
 import Header from 'components/organisms/Header'
 import axios from 'axios'
 import Footer from 'components/organisms/Footer'
+import $api from 'src/AxiosBase'
 
 export default defineComponent({
   name: 'PageIndex',
@@ -130,7 +131,21 @@ export default defineComponent({
         paymentCosts: this.paymentCosts
       }
       if (this.dropdown !== 'Налоговая ставка') {
-        console.log(data)
+        $api.post('auth',{
+          "name": this.name,
+          "income": this.income,
+          "costs": this.costs,
+          "taxRate": this.dropdown,
+          "paymentMargin": this.paymentMargin,
+          "paymentCosts": this.paymentCosts
+        })
+          .then(function (response) {
+            console.log(response)
+            this.$router.push("/")
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
       else {
         this.isValid = true

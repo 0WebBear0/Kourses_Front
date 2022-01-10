@@ -82,7 +82,7 @@ const linksList = [
   {
     title: 'Помощь',
     icon: 'help',
-    link: '/help'
+    link: ''
   }
 ]
 

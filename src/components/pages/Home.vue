@@ -1,37 +1,38 @@
 <template>
-  <Header name="unaftorise" avatar="person_off" user-settings="/profile" />
+  <Header name="webMen" avatar="person_off" user-settings="/profile" />
   <q-page class="flex flex-center">
     <div class="main">
       <div class="info-block">
-        f
+        <q-carousel autoplay infinite animated v-model="slide">
+          <q-carousel-slide :name="1" img-src="imgs/4.jpg"/>
+          <q-carousel-slide :name="2" img-src="imgs/5.jpg"/>
+        </q-carousel>
       </div>
       <div class="blue-block">
-        <h3>Создать отчет</h3>
+        <h3>Расчитать предпологаемую модель</h3>
         <div class="container">
           <div class="container-info">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quas distinctio voluptate officiis, eius voluptatum aut odio blanditiis aliquid.
-              Nam a tempore perferendis ex sunt eaque, amet dolor impedit. Suscipit, provident.
+              В этом приложении вы можете расчитать маржинальность вашей бизнес модели,
+              не прибегая к изучению каждой из систем налогообложения.
             </p>
-            <q-btn to="/calculator" rounded>Добавить отчет</q-btn>
+            <q-btn to="/calculator" rounded>Расчитать</q-btn>
           </div>
           <div class="container-img">
-            <img src=""/>
+            <img style="width: 60%;" src="imgs/1.jpg"/>
           </div>
         </div>
       </div>
       <div class="red-block">
-        <h3>Управляйте своими отчетами</h3>
+        <h3>Управляйте своими расчётами</h3>
         <div class="container">
-          <div class="conatiner-img">
-            <img src=""/>
+          <div class="container-img">
+            <img style="width: 60%;" src="imgs/3.jpg"/>
           </div>
           <div class="container-info">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quas distinctio voluptate officiis, eius voluptatum aut odio blanditiis aliquid.
-              Nam a tempore perferendis ex sunt eaque, amet dolor impedit. Suscipit, provident.
+              Все расчёты храняться в базе данных и в любой момент вы можете к ним вернуться.
+              А так же можно сравнить предпологаемые расчёты и реальные траты.
             </p>
             <q-btn to="/profile" rounded>Посмотреть</q-btn>
           </div>
@@ -43,7 +44,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import Header from 'components/organisms/Header'
 import Footer from 'components/organisms/Footer'
 import $api from 'src/AxiosBase'
@@ -56,16 +57,12 @@ export default defineComponent({
   // },
   methods: {
     registrations () {
-      $api.post('auth',{
-        username: "HomePage",
-        password: "PomeHage"
-      })
-        .then(function (response) {
-          console.log(response)
-        })
-        .catch(function (error) {
-          console.log(error)
-        })
+
+    }
+  },
+  setup(){
+    return{
+      slide: ref(1)
     }
   }
 })
@@ -73,8 +70,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .block {
-  width: 100vw;
-  padding: 1rem 1rem 0;
+  width: 100%;
   h3 {
     color: #CD0000;
   }
@@ -99,7 +95,7 @@ h3 {
   justify-content: space-around;
   align-items: center;
   &-info {
-    width: 40%;
+    width: 50%;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -112,11 +108,18 @@ h3 {
       background: #CD0000;
     }
   }
+  &-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    filter: brightness(75%);
+  }
 }
 
 .info-block {
-  margin: 8rem 2rem;
-  display: flex;
+  width: 100%;
+  height: 100%;
   justify-content: space-around;
   .column-block {
     background: #F9F9F9;

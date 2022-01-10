@@ -2,7 +2,13 @@
   <Header name="unaftorise" avatar="person_off" user-settings="/profile" />
   <q-page class="flex flex-center">
     <div class="main">
-     fd
+      <q-list dense bordered padding class="rounded-borders">
+        <q-item clickable v-ripple>
+          <q-item-section>
+            Item
+          </q-item-section>
+        </q-item>
+      </q-list>
     </div>
     <Footer/>
   </q-page>
@@ -12,10 +18,20 @@
 import { defineComponent } from 'vue'
 import Header from 'components/organisms/Header'
 import Footer from 'components/organisms/Footer'
+import $api from 'src/AxiosBase'
 
 export default defineComponent({
   name: 'PageIndex',
-  components: { Footer, Header }
+  components: { Footer, Header },
+  created () {
+    $api.get('taxation')
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+  }
 })
 </script>
 
