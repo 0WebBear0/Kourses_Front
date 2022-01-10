@@ -122,16 +122,8 @@ export default defineComponent({
   },
   methods: {
     SaveCalculate () {
-      const data = {
-        name: this.name,
-        income: this.income,
-        costs: this.costs,
-        nalogS: this.dropdown,
-        paymentMargin: this.paymentMargin,
-        paymentCosts: this.paymentCosts
-      }
       if (this.dropdown !== 'Налоговая ставка') {
-        $api.post('auth',{
+        $api.post('/taxation',{
           "name": this.name,
           "income": this.income,
           "costs": this.costs,

@@ -3,11 +3,17 @@
   <q-page class="flex flex-center">
     <div class="main">
       <q-list dense bordered padding class="rounded-borders">
-        <q-item clickable v-ripple>
+        <q-item clickable v-ripple >
           <q-item-section>
-            Item
+            test
           </q-item-section>
         </q-item>
+        <q-item clickable v-ripple >
+          <q-item-section>
+            123
+          </q-item-section>
+        </q-item>
+
       </q-list>
     </div>
     <Footer/>
@@ -15,7 +21,7 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import Header from 'components/organisms/Header'
 import Footer from 'components/organisms/Footer'
 import $api from 'src/AxiosBase'
@@ -23,15 +29,18 @@ import $api from 'src/AxiosBase'
 export default defineComponent({
   name: 'PageIndex',
   components: { Footer, Header },
-  created () {
-    $api.get('taxation')
-      .then(function (response) {
-        console.log(response)
-      })
-      .catch(function (error) {
-        console.log(error)
-      })
-  }
+  data: {
+    getData : null
+  },
+  // created () {
+  //   $api.get('taxation')
+  //     .then(function (response) {
+  //       this.data.getData = response.data
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error)
+  //     })
+  // },
 })
 </script>
 
