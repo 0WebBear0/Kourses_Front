@@ -63,6 +63,7 @@
 import { defineComponent, ref } from 'vue'
 import Header from 'components/organisms/Header'
 import axios from 'axios'
+import $api from 'src/AxiosBase'
 import Footer from 'components/organisms/Footer'
 
 export default defineComponent({
@@ -73,7 +74,7 @@ export default defineComponent({
   },
   methods: {
     getAllPosts () {
-      axios.get('http://localhost:8080/register/all').then(Response => console.log(Response)).catch(e => console.log(e))
+      $api.get('register/all').then(Response => console.log(Response)).catch(e => console.log(e))
     }
   },
   created () {
