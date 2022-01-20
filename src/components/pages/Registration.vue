@@ -36,103 +36,23 @@
                   <div>
                     <div>
                       <p>К какому врачу хотите записаться?</p>
-                      <q-select v-model="model" :options="options" :dense="dense" :options-dense="denseOpts">
+                      <q-select v-model="specialnost" :options="spec" :dense="dense" :options-dense="denseOpts">
                       </q-select>
                     </div>
                     <div><q-checkbox>Выбрать врача</q-checkbox></div>
                     <div>
-                      <q-select v-model="model" :options="options" :dense="dense" :options-dense="denseOpts">
+                      <q-select v-model="doctor" :options="doctors" :dense="dense" :options-dense="denseOpts">
                       </q-select>
                     </div>
                   </div>
                   <div class="q-gutter-md row items-start">
-                    <q-date v-model="model" mask="YYYY-MM-DD HH:mm" color="blue" />
-                    <q-time v-model="model" mask="YYYY-MM-DD HH:mm" color="blue" />
+                    <q-date v-model="date" mask="YYYY-MM-DD HH:mm" color="blue" />
+                    <q-time v-model="time" mask="YYYY-MM-DD HH:mm" color="blue" />
                   </div>
                 </div>
                 <div class="button-check"><q-btn class="blue">Проверить наличие свободных окон</q-btn></div>
             </div>
             <div class="reg-button"><q-btn size="xl" class="red reg">ЗАПИСАТЬСЯ НА ПРИЕМ</q-btn></div>
-            <!-- <div class="container">
-              <div class="container__top-inputs column">
-                <q-input
-                  class="mainItem"
-                  outlined
-                  type="number"
-                  v-model="income"
-                  label="Предполагаемый доход"
-                  :rules="[ val => val && val.length > 0 || '']"
-                />
-                <q-input
-                  class="mainItem"
-                  outlined
-                  type="number"
-                  v-model="costs"
-                  label="Расходы"
-                  :rules="[ val => val && val.length > 0 || '']"
-                />
-                <q-btn-dropdown color="grey-5" class="mainItem DropDown" :label="dropdown" dropdown-icon="change_history">
-                  <q-list>
-
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
-                      <q-item clickable v-close-popup @click="dropdown = 'Ип ОСНО'" style="width: 75%; justify-content: center;">
-                        <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип ОСНО</q-item-label>
-                      </q-item>
-                      <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/osno-obshchaya-sistema-nalogooblozheniya" v-close-popup style="width: 25%; justify-content: center;">
-                        <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="help" color="grey-8" />
-                      </q-item>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
-                      <q-item clickable v-close-popup @click="dropdown = 'Ип УСН %6'" style="width: 75%; justify-content: center;">
-                        <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип УСН %6</q-item-label>
-                      </q-item>
-                      <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/usn" v-close-popup style="width: 25%; justify-content: center;">
-                        <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="help" color="grey-8" />
-                      </q-item>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
-                      <q-item clickable v-close-popup @click="dropdown = 'Ип УСН %15'" style="width: 75%; justify-content: center;">
-                        <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип УСН %15</q-item-label>
-                      </q-item>
-                      <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/usn" v-close-popup style="width: 25%; justify-content: center;">
-                        <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="help" color="grey-8" />
-                      </q-item>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
-                      <q-item clickable v-close-popup @click="dropdown = 'Ип ЕСХ'" style="width: 75%; justify-content: center;">
-                        <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип ЕСХ</q-item-label>
-                      </q-item>
-                      <q-item clickable href="https://www.nalog.gov.ru/rn77/taxation/taxes/eshn/" v-close-popup style="width: 25%; justify-content: center;">
-                        <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="help" color="grey-8" />
-                      </q-item>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
-                      <q-item clickable v-close-popup @click="dropdown = 'Ип ПСН'" style="width: 75%; justify-content: center;">
-                        <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип ПСН</q-item-label>
-                      </q-item>
-                      <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/patentnaya-sistema-nalogooblozheniya" v-close-popup style="width: 25%; justify-content: center;">
-                        <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="help" color="grey-8" />
-                      </q-item>
-                    </div>
-                    <div style="display: flex; flex-wrap: wrap; justify-content: space-evenly">
-                      <q-item clickable v-close-popup @click="dropdown = 'Ип НПД'" style="width: 75%; justify-content: center;">
-                        <q-item-label style="display: flex; justify-content: center; align-items: center;">Ип НПД</q-item-label>
-                      </q-item>
-                      <q-item clickable href="https://www.regberry.ru/nalogooblozhenie/nalogi-samozanyatyh-grazhdan-v-2019" v-close-popup style="width: 25%; justify-content: center;">
-                        <q-icon size="200%" style="display: flex; justify-content: center; align-items: center;" name="help" color="grey-8" />
-                      </q-item>
-                    </div>
-
-                  </q-list>
-                </q-btn-dropdown>
-              </div>
-              <div class="payments row">
-                <q-input class="mainItem" outlined v-model="paymentCosts" label="Расчёт расхода" readonly />
-                <q-input class="mainItem" outlined v-model="paymentMargin" label="Расчёт маржи" readonly/>
-                <p class="validation" v-if="isValid">Налоговая ставка <br> не указана </p>
-              </div>
-              <div class="container-button"><q-btn color="grey-9" type="submit" size='lg'>Сохранить</q-btn></div>
-            </div> -->
           </q-form>
         </div>
     </q-page>
@@ -149,37 +69,20 @@ export default defineComponent({
   name: 'Registration',
   components: { Footer, Header },
   watch: {
-    income: function () {
-      this.calculatePayment()
-    },
-    costs: function () {
-      this.calculatePayment()
-    },
-    dropdown: function () {
-      this.isValid = false
-      this.calculatePayment()
-    }
+    
   },
   methods: {
-    SaveCalculate () {
-      const data = {
-        name: this.name,
-        income: this.income,
-        costs: this.costs,
-        nalogS: this.dropdown,
-        paymentMargin: this.paymentMargin,
-        paymentCosts: this.paymentCosts
-      }
-      if (this.dropdown !== 'Выберите врача') {
-        console.log(data)
-      }
-      else {
-        this.isValid = true
-      }
+    getAllPosts () {
+      axios.get('http://localhost:8080/register/all').then(Response => console.log(Response)).catch(e => console.log(e))
     }
+  },
+  created () {
+    this.getAllPosts()
   },
   setup () {
     return {
+      date: ref(''),
+      time: ref(''),
       name: ref(''),
       surname: ref(''),
       lastname: ref(''),
@@ -189,42 +92,16 @@ export default defineComponent({
       paymentCosts: ref(null),
       dropdown: ref('Выберите врача'),
       isValid: ref(false),
-      model: ref(null),
-      options: [
-        'Google', 'Facebook', 'Twitter', 'Apple', 'Oracle'
+      specialnost: ref(null),
+      doctor: ref(null),
+      spec: [
+        'Стоматолог', 'Ортопед', 'Окулист', 'Терапевт'
+      ],
+      doctors: [
+        'Александр Михайлович Жуков', 'Владислав Иванович Карпухин'
       ],
       dense: ref(false),
       denseOpts: ref(false),
-      calculatePayment () {
-        if (this.income && this.costs !== null) {
-          switch (this.dropdown) {
-            case 'Ип ОСНО':
-              this.paymentCosts = (this.income - this.costs) * 0.13
-              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.13)
-              break
-            case 'Ип УСН %6':
-              this.paymentCosts = Number(this.costs) + Number(this.income * 0.06)
-              this.paymentMargin = this.income - this.costs - this.income * 0.06
-              break
-            case 'Ип УСН %15':
-              this.paymentCosts = (this.income - this.costs) * 0.15
-              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.15)
-              break
-            case 'Ип ЕСХ':
-              this.paymentCosts = (this.income - this.costs) * 0.06
-              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.06)
-              break
-            case 'Ип ПСН':
-              this.paymentCosts = (this.income - this.costs) * 0.06
-              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.06)
-              break
-            case 'Ип НПД':
-              this.paymentCosts = (this.income - this.costs) * 0.4
-              this.paymentMargin = this.income - this.costs - ((this.income - this.costs) * 0.4)
-              break
-          }
-        }
-      }
     }
   }
 })
